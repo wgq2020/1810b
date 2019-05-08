@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    name: mydb
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/admin?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: treeprovider
+  dubbo :
+    application:
+      name : tree_provider
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    protocol :
+      name: dubbo
+      port: 20880
+    scan: com.jk.service
+    #redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+mybatis:
+  mapperLocations: classpath*:mybatis/*.xml
+  typeAliasesPackage: com.jk.bean
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 8899
+
